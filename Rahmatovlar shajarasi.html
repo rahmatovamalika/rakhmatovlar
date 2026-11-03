@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rahmatovlar shajarasi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f7f1e6;--card:#fff9ee;--ink:#1b2438;--mut:#5d6a82;--line:#d9cdb6;--chip:#fff;color-scheme:light dark}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1729;--card:#15233d;--ink:#eaf0fb;--mut:#9fb0c8;--line:#2a3b5c;--chip:#0e1a2f}}
+:root[data-theme="dark"]{--bg:#0c1729;--card:#15233d;--ink:#eaf0fb;--mut:#9fb0c8;--line:#2a3b5c;--chip:#0e1a2f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif}
+main{max-width:780px;margin:0 auto;padding:18px}
+.band{display:block;width:100%;height:30px}
+h1{font:700 clamp(40px,10vw,66px)/1.02 Fraunces,Georgia,serif;margin:26px 0 14px}
+.lead{color:var(--mut);font-size:19px;line-height:1.6;margin:0 0 22px}
+.stats{display:flex;gap:26px;flex-wrap:wrap;font-size:20px;margin-bottom:22px}.stats b{font-size:32px}
+input{width:100%;padding:17px 20px;font:inherit;font-size:19px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:18px;margin-bottom:14px}
+.row{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+button{font:inherit;color:var(--ink);background:transparent;border:1.5px solid var(--ink);border-radius:16px;padding:14px 22px;font-size:20px;cursor:pointer}
+.sq{width:48px;height:56px;padding:0}
+#zl{min-width:54px;text-align:center;color:var(--mut)}
+.leg{display:flex;gap:8px 18px;flex-wrap:wrap;font-size:19px;margin:18px 0}.leg i,.chip i{display:inline-block;width:13px;height:13px;border-radius:50%;margin-right:9px}
+.card{position:relative;border-radius:26px;overflow:hidden;border:1px solid var(--line);margin-bottom:22px}
+#wrap{height:min(72vh,640px);min-height:420px;overflow:auto;background:linear-gradient(#06142a,#10294a 70%,#1a3a52);cursor:grab;-webkit-overflow-scrolling:touch}
+svg text{font-family:"Space Grotesk",system-ui,sans-serif}.in{font-family:Fraunces,Georgia,serif;font-weight:700}
+.nd{cursor:pointer}.focus .nd{opacity:.4}.focus .nd.on{opacity:1}.focus .ed{opacity:.3}.focus .ed.hl{opacity:1;stroke:#f6c561}.nd.sel .c{stroke:#fff;stroke-width:5}
+.fl{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.lv{position:absolute;top:-20px;width:13px;height:7px;border-radius:0 100% 0 100%;animation:fall linear infinite}
+@keyframes fall{0%{transform:translate(0,-20px) rotate(0)}50%{transform:translate(30px,40vh) rotate(200deg)}100%{transform:translate(-20px,85vh) rotate(400deg)}}
+@media(prefers-reduced-motion:reduce){.lv{display:none}}
+.det{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:26px}
+.av{width:108px;height:108px;border-radius:50%;border:7px solid;display:flex;align-items:center;justify-content:center;font:700 44px Fraunces,Georgia,serif;background:var(--chip);margin-bottom:22px}
+.rl{letter-spacing:.15em;color:var(--mut);font-size:16px}
+.det h2{font:700 clamp(34px,8vw,48px)/1.1 Fraunces,Georgia,serif;margin:6px 0 16px}
+.m{color:var(--mut);font-size:19px;margin:6px 0}.m b{color:var(--ink)}
+.det h3{letter-spacing:.14em;color:var(--mut);font-size:16px;margin:26px 0 12px;font-weight:500}
+.chip{display:inline-flex;align-items:center;margin:0 8px 10px 0;padding:11px 18px;font-size:19px;border:1px solid var(--line);background:var(--chip);border-radius:999px}
+</style>
+</head>
+<body>
+<main>
+<svg class="band" aria-hidden="true"><defs><pattern id="ik" width="40" height="30" patternUnits="userSpaceOnUse"><path d="M20 2L36 15 20 28 4 15Z" fill="#e8607a"/><path d="M20 7L31 15 20 23 9 15Z" fill="#f2b04a"/><path d="M20 11L26 15 20 19 14 15Z" fill="#3cc4b8"/></pattern></defs><rect width="100%" height="30" fill="url(#ik)"/></svg>
+<h1>Rahmatovlar shajarasi</h1>
+<p class="lead">Qozoq Cho’liyev va Bibisora Xo’jayevadan boshlangan oila. Daraxtning ildizi pastda, har yangi avlod yuqoriga novda otadi. Biror kishini bossangiz, uning ildizigacha bo’lgan yo’l yorishadi. Tuzuvchi: Rahmatova Malika.</p>
+<div class="stats"><span><b id="s1"></b> avlod</span><span><b id="s2"></b> a’zo</span><span><b id="s3"></b> oila shoxi</span></div>
+<input id="q" placeholder="Ism bo’yicha qidirish" autocomplete="off">
+<div class="row"><button id="rnd">Tasodifiy a’zo</button></div>
+<div class="row"><button class="sq" id="zo">−</button><span id="zl">40%</span><button class="sq" id="zi">+</button><button id="fit">Hammasi</button></div>
+<div class="leg" id="leg"></div>
+<div class="card"><div id="wrap"><svg id="sv" xmlns="http://www.w3.org/2000/svg"></svg></div><div class="fl" id="fl"></div></div>
+<section class="det" id="det"></section>
+</main>
+<script>
+const P=(n,l,s,k,f)=>({n,l:l||"",s:s||"",k:k||[],f:f||n});
+const T=P("Qozoq","","Bibisora|Xo’jayeva Bibisora",[
+P("Asad","","Hadicha|Hadicha buvi",[
+ P("Rahmat","1901 – urushda vafot etgan","Rajab|Rahmatova Rajab (1904 – 2003)",[
+  P("Bozoramin","15.04.1936 – 05.10.2022","Hafiza|Qudratova Hafiza (13.05.1939 – 29.07.2003)",[
+   P("Mukarram","06.08.1959","",0,"Rahmatova Mukarram"),
+   P("Axror","29.07.1961","Mavluda",[
+    P("Asror","","Zarnigor",[P("Asadbek"),P("Temurbek")],"Rahmatov Asror"),
+    P("Anvar","","Aziza|Esanova Aziza",[P("Shirina"),P("Sherbek"),P("Muslima")],"Rahmatov Anvar"),
+    P("Maftuna","07.09.1990","Asxad",[P("Marjona","25.09.2012"),P("Akbarshox"),P("Amirbek")],"Rahmatova Maftuna")
+   ],"Rahmatov Axror"),
+   P("Gulnora","21.06.1964","Zarif",[
+    P("Shoxsanam","","Rutam",[P("Imronbek"),P("Iymona")]),
+    P("Zuxriddin","","Dilnoza",[P("Dilfuza"),P("Zoxidbek")])
+   ],"Rahmatova Gulnora"),
+   P("Akram","15.08.1967","Zaynab",[
+    P("Abdulloh","","Durdona",[P("Afruza")]),
+    P("Nargiza","","Baxtiyor",[P("Umurbek"),P("Ulug’bek")]),
+    P("Asliddin")
+   ],"Rahmatov Akram"),
+   P("Gulmera","18.04.1970","",[
+    P("Sayyora","","Muhiddin",[P("Muhammadali"),P("Asilbek"),P("Imronbek")]),
+    P("Jamshid","","Kamola",[P("Javoxir"),P("Jasurbek"),P("Muhammadjon"),P("Sofiya")])
+   ],"Rahmatova Gulmera"),
+   P("Ikrom","05.02.1972","Marziya|Jo’raqulova Marziya (23.09.1977)",[
+    P("Malika","27.08.2008","",0,"Rahmatova Malika"),
+    P("Ilhom","16.05.2010","",0,"Rahmatov Ilhom")
+   ],"Rahmatov Ikrom"),
+   P("Ibrohim","10.12.1973","Nazokat",[P("Shaxzod"),P("Shamshod")],"Rahmatov Ibrohim"),
+   P("Nazira","03.05.1979","Amin|Bo’ronov Amin",[P("Azam"),P("Mohira"),P("Islom")],"Rahmatova Nazira")
+  ],"Rahmatov Bozoramin"),
+  P("Hokima","","",0,"Rahmatova Hokima"),
+  P("Sattor","","",0,"Rahmatov Sattor")
+ ],"Asadov Rahmat"),
+ P("Hidoyat","","",[P("Esanoy"),P("To’raqul")],"Asadova Hidoyat")
+],"Asad bobo"),
+P("Abdulloh")
+],"Cho’liyev Qozoq");
+
+const C=["#e8607a","#f2b04a","#3cc4b8","#6d9bf0","#b79cf0","#7ed07e","#f07fb8"],R=24,GY=150;
+let seed=7;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+const ppl=[];let maxD=0;
+function reg(n,d,par){n.d=d;n.par=par;n.id=ppl.length;n.kind="b";ppl.push(n);maxD=Math.max(maxD,d);
+ if(n.s){const[sh,fl]=n.s.split("|"),full=fl||sh,m=full.match(/^(.*?)\s*\((.*)\)$/);
+  n.sp={f:m?m[1]:full,l:m?m[2]:"",d,kind:"s",mate:n,id:ppl.length,k:[]};n.sp.n=sh;ppl.push(n.sp)}
+ n.k.forEach(c=>reg(c,d+1,n))}
+reg(T,1,null);
+const wd=n=>n.w=Math.max(n.sp?220:116,n.k.reduce((a,c)=>a+wd(c),0));
+function place(n,left){const sum=n.k.reduce((a,c)=>a+c.w,0);let x=left+(n.w-sum)/2;
+ n.k.forEach(c=>{place(c,x);x+=c.w});
+ n.x=n.k.length?(n.k[0].x+n.k[n.k.length-1].x)/2:left+n.w/2;
+ n.px=n.sp?n.x-54:n.x;if(n.sp)n.sp.px=n.x+54}
+wd(T);place(T,40);
+const W=T.w+80,H=maxD*GY+330,Y=d=>H-240-(d-1)*GY,gy=H-150,cx=T.x;
+const ini=f=>f.split(" ").filter(w=>!/^(bobo|buvi)$/.test(w)).slice(0,2).map(w=>w[0]).join("").toUpperCase();
+const yrs=l=>{const m=l.match(/\d{4}/g)||[];return m.length>1?m[0]+"–"+m[1]:m[0]||""};
+const px=p=>p.px,py=p=>Y(p.d);
+let s=`<defs><pattern id="ik2" width="40" height="30" patternUnits="userSpaceOnUse"><path d="M20 2L36 15 20 28 4 15Z" fill="#e8607a"/><path d="M20 7L31 15 20 23 9 15Z" fill="#f2b04a"/><path d="M20 11L26 15 20 19 14 15Z" fill="#3cc4b8"/></pattern></defs>`;
+for(let i=0;i<110;i++)s+=`<circle cx="${rnd()*W}" cy="${rnd()*(gy-60)}" r="${.7+rnd()*1.2}" fill="#fff" opacity="${.25+rnd()*.5}"/>`;
+s+=`<rect y="${gy}" width="${W}" height="${H-gy}" fill="#2a1a12"/><rect y="${gy-4}" width="${W}" height="9" fill="#3f8f4a"/>`;
+for(let x=10;x<W;x+=24)s+=`<circle cx="${x+rnd()*14}" cy="${gy-6-rnd()*8}" r="3" fill="${["#ee7da0","#f6c561","#b79cf0","#fff"][(rnd()*4)|0]}"/>`;
+[[-330,130],[-210,150],[-110,160],[110,160],[210,150],[330,130]].forEach(([dx,dy],i)=>s+=`<path d="M${cx+dx/12},${gy+4}C${cx+dx*.4},${gy+dy*.2} ${cx+dx*.7},${gy+dy*.6} ${cx+dx},${gy+dy*.7}" fill="none" stroke="#9c7449" stroke-width="${i%3?10:14}" stroke-linecap="round"/>`);
+const y1=Y(1);
+s+=`<path d="M${cx-62},${gy+8}C${cx-30},${gy-40} ${cx-26},${y1+80} ${cx-20},${y1}L${cx+20},${y1}C${cx+26},${y1+80} ${cx+30},${gy-40} ${cx+62},${gy+8}Z" fill="#9c7449"/>`;
+let ed="",lf="";const GR=["#1f7a52","#2fa36b","#1b6b63","#3cc4a0","#5db36b","#2a8f7a"];
+ppl.forEach(n=>{if(n.kind!=="b")return;n.k.forEach(c=>{const y0=Y(n.d),yy=Y(c.d),m=(y0+yy)/2;
+ ed+=`<path class="ed" data-e="${c.id}" d="M${n.x},${y0}C${n.x},${m} ${c.px},${m} ${c.px},${yy}" fill="none" stroke="#9c7449" stroke-width="${Math.max(3,15-c.d*2)}" stroke-linecap="round"/>`;
+ [.25,.45,.62,.8].forEach(t=>{const lx=n.x+(c.px-n.x)*t+(rnd()-.5)*50,ly=y0+(yy-y0)*t+(rnd()-.5)*30;
+  lf+=`<ellipse cx="${lx}" cy="${ly}" rx="${9+rnd()*5}" ry="${4.5+rnd()*2}" transform="rotate(${rnd()*180} ${lx} ${ly})" fill="${GR[(rnd()*6)|0]}" opacity="${.55+rnd()*.4}"/>`})})});
+s+=ed+lf;
+const lab=p=>{const w=p.f.split(" "),L=w.length>1?[w[0],w.slice(1).join(" ")]:[p.f],yr=yrs(p.l),x=px(p),y=py(p)+R+8,
+ pw=Math.max(...L.map(t=>t.length))*7.4+14,h=L.length*14+(yr?13:0)+7;
+ return `<rect x="${x-pw/2}" y="${y}" width="${pw}" height="${h}" rx="7" fill="#0b1830" opacity=".85"/>`+L.map((t,i)=>`<text x="${x}" y="${y+15+i*14}" text-anchor="middle" font-size="12" font-weight="700" fill="#eaf0fb">${t}</text>`).join("")+(yr?`<text x="${x}" y="${y+h-4}" text-anchor="middle" font-size="9.5" fill="#9fb0c8">${yr}</text>`:"")};
+ppl.forEach(p=>{const x=px(p),y=py(p);
+ if(p.kind==="b"&&p.sp)s+=`<path d="M${x},${y}H${p.sp.px}" stroke="#7d93b5" stroke-dasharray="3 4" fill="none"/><circle cx="${p.x-5}" cy="${y}" r="9" fill="none" stroke="#c7d4ea" stroke-width="2"/><circle cx="${p.x+5}" cy="${y}" r="9" fill="none" stroke="#c7d4ea" stroke-width="2"/>`;});
+ppl.forEach(p=>{const x=px(p),y=py(p);
+ s+=`<g class="nd" data-i="${p.id}"><circle class="c" cx="${x}" cy="${y}" r="${R}" fill="#27324f" stroke="${C[p.d-1]}" stroke-width="3.5"/><text class="in" x="${x}" y="${y+7}" text-anchor="middle" font-size="19" fill="#fff">${ini(p.f)}</text>${lab(p)}</g>`});
+s+=`<rect y="${H-30}" width="${W}" height="30" fill="url(#ik2)"/>`;
+const sv=document.getElementById("sv"),wrap=document.getElementById("wrap"),det=document.getElementById("det");
+sv.setAttribute("viewBox",`0 0 ${W} ${H}`);sv.innerHTML=s;
+const nodeEl={},edgeEl={};sv.querySelectorAll("[data-i]").forEach(e=>nodeEl[e.dataset.i]=e);sv.querySelectorAll("[data-e]").forEach(e=>edgeEl[e.dataset.e]=e);
+let sc=.4;
+const ap=()=>{sv.style.width=W*sc+"px";sv.style.height=H*sc+"px";document.getElementById("zl").textContent=Math.round(sc*100)+"%"};
+function zoom(v){const a=(wrap.scrollLeft+wrap.clientWidth/2)/sc,b=(wrap.scrollTop+wrap.clientHeight/2)/sc;sc=Math.max(.2,Math.min(1.6,v));ap();wrap.scrollLeft=a*sc-wrap.clientWidth/2;wrap.scrollTop=b*sc-wrap.clientHeight/2}
+const chip=p=>`<button class="chip" data-i="${p.id}"><i style="background:${C[p.d-1]}"></i>${p.f}</button>`;
+function sel(p,go){const b=p.kind==="s"?p.mate:p,path=[];for(let q=b;q;q=q.par)path.unshift(q);
+ const on=new Set(path.map(q=>q.id));on.add(p.id);sv.classList.add("focus");
+ ppl.forEach(q=>{const e=nodeEl[q.id];e.classList.toggle("on",on.has(q.id));e.classList.toggle("sel",q===p);if(edgeEl[q.id])edgeEl[q.id].classList.toggle("hl",on.has(q.id))});
+ const y=p.l.match(/\d{4}/g)||[],kids=b.k,mate=p.kind==="b"?p.sp:p.mate;
+ det.innerHTML=`<div class="av" style="border-color:${C[p.d-1]}">${ini(p.f)}</div><div class="rl">${p.d}-AVLOD</div><h2>${p.f}</h2>`+
+ (p.l?`<p class="m">Sana: <b>${p.l}</b></p>`:"")+(y.length>1?`<p class="m">Umri: <b>${y[1]-y[0]} yil</b></p>`:"")+`<p class="m">Avlod: <b>${p.d}-avlod</b></p>`+
+ (mate?`<h3>TURMUSH O’RTOG’I</h3>${chip(mate)}`:"")+(kids.length?`<h3>FARZANDLAR</h3>${kids.map(chip).join("")}`:"")+
+ (path.length>1?`<h3>ILDIZIGACHA YO’L</h3>${path.slice().reverse().map(chip).join("")}`:"");
+ if(go){wrap.scrollTo({left:px(p)*sc-wrap.clientWidth/2,top:py(p)*sc-wrap.clientHeight/2,behavior:"smooth"});document.getElementById("wrap").scrollIntoView({block:"nearest",behavior:"smooth"})}}
+sv.addEventListener("click",e=>{const g=e.target.closest("[data-i]");if(g)sel(ppl[g.dataset.i],false)});
+det.addEventListener("click",e=>{const g=e.target.closest("[data-i]");if(g)sel(ppl[g.dataset.i],true)});
+document.getElementById("zi").onclick=()=>zoom(sc+.1);document.getElementById("zo").onclick=()=>zoom(sc-.1);
+document.getElementById("fit").onclick=()=>{sc=Math.max(.2,wrap.clientWidth/W);ap();wrap.scrollTo(0,0)};
+document.getElementById("rnd").onclick=()=>sel(ppl[(Math.random()*ppl.length)|0],true);
+document.getElementById("q").oninput=e=>{const v=e.target.value.trim().toLowerCase();if(!v)return;const p=ppl.find(x=>x.f.toLowerCase().includes(v));if(p)sel(p,true)};
+let dn=0,sx,sy,sl,st;wrap.addEventListener("mousedown",e=>{dn=1;sx=e.clientX;sy=e.clientY;sl=wrap.scrollLeft;st=wrap.scrollTop});
+addEventListener("mouseup",()=>dn=0);addEventListener("mousemove",e=>{if(dn){wrap.scrollLeft=sl-(e.clientX-sx);wrap.scrollTop=st-(e.clientY-sy)}});
+document.getElementById("s1").textContent=maxD;document.getElementById("s2").textContent=ppl.length;document.getElementById("s3").textContent=ppl.filter(p=>p.kind==="b"&&p.k.length).length;
+document.getElementById("leg").innerHTML=C.map((c,i)=>`<span><i style="display:inline-block;width:13px;height:13px;border-radius:50%;margin-right:9px;background:${c}"></i>${i+1}-avlod</span>`).join("");
+const fl=document.getElementById("fl");for(let i=0;i<16;i++){const l=document.createElement("span");l.className="lv";
+ l.style.cssText=`left:${Math.random()*100}%;background:${GR[i%6]};animation-duration:${8+Math.random()*8}s;animation-delay:${-Math.random()*14}s`;fl.appendChild(l)}
+ap();wrap.scrollLeft=T.x*sc-wrap.clientWidth/2;wrap.scrollTop=wrap.scrollHeight;sel(T,false);
+</script>
+</body>
+</html>
